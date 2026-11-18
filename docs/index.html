@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+<title>Little Wins</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#171917;color:#f6f1e7;font:18px/1.6 system-ui,sans-serif}main{max-width:28rem;padding:2rem;text-align:center}h1{font:2.5rem Georgia,serif}a{display:inline-block;color:#171917;background:#f6f1e7;padding:.7rem 1.2rem;border-radius:.5rem}[hidden]{display:none!important}</style></head>
+<body><main><h1>✧ Little Wins</h1><p id="status">Opening your deck…</p><a id="open" hidden rel="noreferrer">Open my deck</a><noscript>Turn on JavaScript, then reopen your complete private link.</noscript></main>
+<script>
+(function () {
+  'use strict';
+  const key = new URLSearchParams(window.location.hash.slice(1)).get('key');
+  const status = document.getElementById('status');
+  if (!key || !/^[a-f0-9]{64}$/.test(key)) {
+    status.textContent = 'Open the complete private link you were sent to reach your deck.';
+    return;
+  }
+  const destination = 'https://script.google.com/macros/s/AKfycbywy-iDRYf3uA6OcYDVAYmIdPMbn0pAEbgfbQhc2GFdy0mYa4JnK4YTvepShBuzZgkl/exec#key=' + key;
+  const link = document.getElementById('open');
+  link.href = destination;
+  link.hidden = false;
+  window.location.replace(destination);
+})();
+</script></body></html>
